@@ -1,0 +1,30 @@
+
+class Solution {
+public:
+    bool Find(int target, vector<vector<int> > array) 
+    {
+        int lenrow=array[0].size();
+        int lenlist=array.size();
+        int keynum=0;
+        for(int i=lenlist-1;i>=0;--i)
+        {
+            int signnum=0;
+            for(int j=0;j<lenrow;++j)
+            {
+                keynum=array[i][j];
+                if(target==keynum) return true;
+                else if(target>keynum)
+                {
+                    continue;
+                }
+                else if(target<keynum)
+                {
+                    break;
+                }
+                signnum=j;
+            }
+            if(signnum==lenrow) return false;
+        }
+        return false;      
+    }
+};
